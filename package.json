@@ -2,7 +2,7 @@
   "name": "dag-pizza-headless",
   "description": "DAG Pizza headless wallet",
   "author": "DAGBPA",
-  "version": "0.1",
+  "version": "0.1.0",
   "main": "start.js",
   "keywords": [
     "wallet",
