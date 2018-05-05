@@ -20,11 +20,11 @@ After you enter the passphrase, the wallet redirects all output to a log file in
 
 ## Customize
 
-If you want to change any defaults, refer to the documentation of [dag-pizza-dough](../../../dag-pizza-dough), the core Byteball library `require()`'d from here.  Below are some headless wallet specific settings you might want to change:
+If you want to change any defaults, refer to the documentation of [dag-pizza-dough](../../../dag-pizza-dough), the core DAG Pizza library `require()`'d from here.  Below are some headless wallet specific settings you might want to change:
 
 * `control_addresses`: array of device addresses of your other (likely GUI) wallets that can chat with the wallet and give commands.  To learn the device address of your GUI wallet, click menu button, then Global preferences, and look for 'Device address'.  If your `control_addresses` is empty array or contains a single address that is invalid (this is the default), then nobody can remotely control your wallet.
-* `payout_address`: if you give `pay` command over chat interface, the money will be sent to this Byteball address.
-* `hub`: hub address without wss://, the default is `byteball.org/bb`.
+* `payout_address`: if you give `pay` command over chat interface, the money will be sent to this DAG Pizza address.
+* `hub`: hub address without wss://, the default is `dagpizza.org/bb`.
 * `deviceName`: the name of your device as seen in the chat interface.
 * `permanent_paring_secret`: the pairing secret used to authenticate pairing requests when you pair your GUI wallet for remote control.  The pairing secret is the part of the pairing code after #.
 
@@ -58,7 +58,7 @@ Don't keep more money than necessary on the server wallet, withdraw the excess u
 
 ## Custom commands
 
-Payments are the central but not the only type of data that Byteball stores.  In [play/](play/) subdirectory, you will find many small scripts that demonstrate how to create other message types that are not available through the GUI wallet.  In particular, you can declare and issue your own assets, post data as an oracle, create polls and cast votes.  Just edit any of these scripts and run it.
+Payments are the central but not the only type of data that DAG Pizza stores.  In [play/](play/) subdirectory, you will find many small scripts that demonstrate how to create other message types that are not available through the GUI wallet.  In particular, you can declare and issue your own assets, post data as an oracle, create polls and cast votes.  Just edit any of these scripts and run it.
 
 ## RPC service
 
