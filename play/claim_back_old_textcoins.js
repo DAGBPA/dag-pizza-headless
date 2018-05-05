@@ -1,12 +1,12 @@
 /*jslint node: true */
 "use strict";
 var headlessWallet = require('../start.js');
-var eventBus = require('byteballcore/event_bus.js');
+var eventBus = require('dag-pizza-dough/event_bus.js');
 
 
 function claimBack(){
 	headlessWallet.readFirstAddress(address => {
-		var Wallet = require('byteballcore/wallet.js');
+		var Wallet = require('dag-pizza-dough/wallet.js');
 		Wallet.claimBackOldTextcoins(address, 7);
 	});
 }

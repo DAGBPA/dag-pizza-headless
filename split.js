@@ -1,6 +1,6 @@
 /*jslint node: true */
 'use strict';
-const db = require('byteballcore/db.js');
+const db = require('dag-pizza-dough/db.js');
 
 const COUNT_CHUNKS = 10;
 

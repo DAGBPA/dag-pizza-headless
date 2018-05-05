@@ -1,9 +1,9 @@
 /*jslint node: true */
 "use strict";
-var constants = require('byteballcore/constants.js');
-var conf = require('byteballcore/conf.js');
-var db = require('byteballcore/db.js');
-var mutex = require('byteballcore/mutex.js');
+var constants = require('dag-pizza-dough/constants.js');
+var conf = require('dag-pizza-dough/conf.js');
+var db = require('dag-pizza-dough/db.js');
+var mutex = require('dag-pizza-dough/mutex.js');
 
 const AUTHOR_SIZE = 3 // "sig"
 	+ 44  // pubkey
@@ -130,7 +130,7 @@ function consolidate(wallet, signer){
 							}
 							let arrUsedAddresses = Object.keys(assocUsedAddresses);
 							readDestinationAddress(wallet, dest_address => {
-								var composer = require('byteballcore/composer.js');
+								var composer = require('dag-pizza-dough/composer.js');
 								composer.composeJoint({
 									paying_addresses: arrUsedAddresses,
 									outputs: [{address: dest_address, amount: 0}],
@@ -139,7 +139,7 @@ function consolidate(wallet, signer){
 									earned_headers_commission_recipients: [{address: dest_address, earned_headers_commission_share: 100}],
 									callbacks: composer.getSavingCallbacks({
 										ifOk: function(objJoint){
-											var network = require('byteballcore/network.js');
+											var network = require('dag-pizza-dough/network.js');
 											network.broadcastJoint(objJoint);
 											unlock();
 											consolidate(wallet, signer); // do more if something's left

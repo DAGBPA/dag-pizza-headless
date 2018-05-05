@@ -1,9 +1,9 @@
 /*jslint node: true */
 "use strict";
-var constants = require('byteballcore/constants.js');
-var conf = require('byteballcore/conf.js');
-var db = require('byteballcore/db.js');
-var eventBus = require('byteballcore/event_bus.js');
+var constants = require('dag-pizza-dough/constants.js');
+var conf = require('dag-pizza-dough/conf.js');
+var db = require('dag-pizza-dough/db.js');
+var eventBus = require('dag-pizza-dough/event_bus.js');
 var headlessWallet = require('../start.js');
 
 
@@ -21,9 +21,9 @@ function work(){
 	function onError(err){
 		throw err;
 	}
-	var network = require('byteballcore/network.js');
-	var walletGeneral = require('byteballcore/wallet_general.js');
-	var composer = require('byteballcore/composer.js');
+	var network = require('dag-pizza-dough/network.js');
+	var walletGeneral = require('dag-pizza-dough/wallet_general.js');
+	var composer = require('dag-pizza-dough/composer.js');
 	createSplitOutputs(function(arrOutputs){
 		console.log(arrOutputs);
 	//	return unlock();

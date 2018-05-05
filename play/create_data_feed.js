@@ -1,15 +1,15 @@
 /*jslint node: true */
 "use strict";
 var headlessWallet = require('../start.js');
-var eventBus = require('byteballcore/event_bus.js');
+var eventBus = require('dag-pizza-dough/event_bus.js');
 
 function onError(err){
 	throw Error(err);
 }
 
 function createDataFeed(){
-	var composer = require('byteballcore/composer.js');
-	var network = require('byteballcore/network.js');
+	var composer = require('dag-pizza-dough/composer.js');
+	var network = require('dag-pizza-dough/network.js');
 	var callbacks = composer.getSavingCallbacks({
 		ifNotEnoughFunds: onError,
 		ifError: onError,

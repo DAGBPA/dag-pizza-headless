@@ -8,26 +8,26 @@
 
 "use strict";
 var headlessWallet = require('../start.js');
-var conf = require('byteballcore/conf.js');
-var eventBus = require('byteballcore/event_bus.js');
-var db = require('byteballcore/db.js');
-var mutex = require('byteballcore/mutex.js');
-var storage = require('byteballcore/storage.js');
-var constants = require('byteballcore/constants.js');
-var validationUtils = require("byteballcore/validation_utils.js");
+var conf = require('dag-pizza-dough/conf.js');
+var eventBus = require('dag-pizza-dough/event_bus.js');
+var db = require('dag-pizza-dough/db.js');
+var mutex = require('dag-pizza-dough/mutex.js');
+var storage = require('dag-pizza-dough/storage.js');
+var constants = require('dag-pizza-dough/constants.js');
+var validationUtils = require("dag-pizza-dough/validation_utils.js");
 var wallet_id;
 
 if (conf.bSingleAddress)
 	throw Error('can`t run in single address mode');
 
 function initRPC() {
-	var composer = require('byteballcore/composer.js');
-	var network = require('byteballcore/network.js');
+	var composer = require('dag-pizza-dough/composer.js');
+	var network = require('dag-pizza-dough/network.js');
 
 	var rpc = require('json-rpc2');
-	var walletDefinedByKeys = require('byteballcore/wallet_defined_by_keys.js');
-	var Wallet = require('byteballcore/wallet.js');
-	var balances = require('byteballcore/balances.js');
+	var walletDefinedByKeys = require('dag-pizza-dough/wallet_defined_by_keys.js');
+	var Wallet = require('dag-pizza-dough/wallet.js');
+	var balances = require('dag-pizza-dough/balances.js');
 
 	var server = rpc.Server.$create({
 		'websocket': true, // is true by default 
