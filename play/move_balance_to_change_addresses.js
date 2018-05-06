@@ -50,7 +50,7 @@ function moveBalance(){
 				console.error('done');
 				return setTimeout(() => { process.exit(0); }, 1000);
 			}
-			console.error('will move '+pay_amount+' bytes from', arrPayingAddresses);
+			console.error('will move '+pay_amount+' pizza from', arrPayingAddresses);
 			readNextChangeAddress(function(to_address){
 				readNextChangeAddress(function(change_address){
 					var arrOutputs = [
@@ -69,7 +69,7 @@ function moveBalance(){
 							ifError: onError,
 							ifOk: function(objJoint){
 								network.broadcastJoint(objJoint);
-								console.error("moved "+pay_amount+" bytes, unit "+objJoint.unit.unit);
+								console.error("moved "+pay_amount+" pizza, unit "+objJoint.unit.unit);
 								moveBalance();
 							}
 						}

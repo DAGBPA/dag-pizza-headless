@@ -163,7 +163,7 @@ function prepareBalanceText(handleBalanceText){
 		var arrLines = [];
 		for (var asset in assocBalances){
 			var total = assocBalances[asset].stable + assocBalances[asset].pending;
-			var units = (asset === 'base') ? ' bytes' : (' of ' + asset);
+			var units = (asset === 'base') ? ' pizza' : (' of ' + asset);
 			var line = total + units;
 			if (assocBalances[asset].pending)
 				line += ' (' + assocBalances[asset].pending + ' pending)';
@@ -353,7 +353,7 @@ function sendPaymentUsingOutputs(asset, outputs, change_address, onDone) {
 	});
 }
 
-function sendAllBytes(to_address, recipient_device_address, onDone) {
+function sendAllPizza(to_address, recipient_device_address, onDone) {
 	var device = require('dag-pizza-dough/device.js');
 	var Wallet = require('dag-pizza-dough/wallet.js');
 	Wallet.sendMultiPayment({
@@ -370,7 +370,7 @@ function sendAllBytes(to_address, recipient_device_address, onDone) {
 	});
 }
 
-function sendAllBytesFromAddress(from_address, to_address, recipient_device_address, onDone) {
+function sendAllPizzaFromAddress(from_address, to_address, recipient_device_address, onDone) {
 	var device = require('dag-pizza-dough/device.js');
 	var Wallet = require('dag-pizza-dough/wallet.js');
 	Wallet.sendMultiPayment({
@@ -503,12 +503,12 @@ function handleText(from_address, text, onUnknown){
 				if(asset===null && amount===null){
 					var msg = "syntax: pay [amount] [asset]";
 					msg +=	"\namount: digits only";
-					msg +=	"\nasset: one of '', 'bytes', 'blackbytes', ASSET_ID";
+					msg +=	"\nasset: one of '', 'pizza', 'noodles', ASSET_ID";
 					msg +=	"\n";
-					msg +=	"\nExample 1: 'pay 12345' pays 12345 bytes";
-					msg +=	"\nExample 2: 'pay 12345 bytes' pays 12345 bytes";
-					msg +=	"\nExample 3: 'pay 12345 blackbytes' pays 12345 blackbytes";
-					msg +=	"\nExample 4: 'pay 12345 qO2JsiuDMh/j+pqJYZw3u82O71WjCDf0vTNvsnntr8o=' pays 12345 blackbytes";
+					msg +=	"\nExample 1: 'pay 12345' pays 12345 pizza";
+					msg +=	"\nExample 2: 'pay 12345 pizza' pays 12345 pizza";
+					msg +=	"\nExample 3: 'pay 12345 noodles' pays 12345 noodles";
+					msg +=	"\nExample 4: 'pay 12345 qO2JsiuDMh/j+pqJYZw3u82O71WjCDf0vTNvsnntr8o=' pays 12345 noodles";
 					msg +=	"\nExample 5: 'pay 12345 ASSET_ID' pays 12345 of asset with ID ASSET_ID";
 					return device.sendMessageToDevice(from_address, 'text', msg);
 				}
@@ -555,7 +555,7 @@ function handleText(from_address, text, onUnknown){
 function analyzePayParams(amountText, assetText, cb){
 	// expected:
 	// amountText = amount; only digits
-	// assetText = asset; '' -> whitebytes, 'bytes' -> whitebytes, 'blackbytes' -> blackbytes, '{asset-ID}' -> any asset
+	// assetText = asset; '' -> pizza, 'pizza' -> pizza, 'noodles' -> noodles, '{asset-ID}' -> any asset
 
 	if (amountText===''&&assetText==='') return cb(null, null);
 
@@ -567,10 +567,10 @@ function analyzePayParams(amountText, assetText, cb){
 		var asset = assetText.toLowerCase();
 		switch(asset){
 			case '':
-			case 'bytes':
+			case 'pizza':
 				return cb(null, amount);
-			case 'blackbytes':
-				return cb(constants.BLACKBYTES_ASSET, amount);
+			case 'noodles':
+				return cb(constants.NOODLES_ASSET, amount);
 			default:
 				// return original assetText string because asset ID it is case sensitive
 				return cb(assetText, amount);
@@ -614,9 +614,9 @@ exports.signMessage = signMessage;
 exports.setupChatEventHandlers = setupChatEventHandlers;
 exports.handlePairing = handlePairing;
 exports.handleText = handleText;
-exports.sendAllBytesFromAddress = sendAllBytesFromAddress;
+exports.sendAllPizzaFromAddress = sendAllPizzaFromAddress;
 exports.sendAssetFromAddress = sendAssetFromAddress;
-exports.sendAllBytes = sendAllBytes;
+exports.sendAllPizza = sendAllPizza;
 exports.sendPaymentUsingOutputs = sendPaymentUsingOutputs;
 exports.sendMultiPayment = sendMultiPayment;
 exports.issueChangeAddressAndSendMultiPayment = issueChangeAddressAndSendMultiPayment;
