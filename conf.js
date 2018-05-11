@@ -2,7 +2,7 @@
 "use strict";
 
 //exports.port = 6611;
-//exports.myUrl = 'wss://mydomain.com/bb';
+//exports.myUrl = 'wss://mydomain.com/pp';
 exports.bServeAsHub = false;
 exports.bLight = false;
 
@@ -10,7 +10,7 @@ exports.bLight = false;
 exports.storage = 'sqlite';
 
 
-exports.hub = 'dagpizza.org/bb';
+exports.hub = 'dagpizza.org/pp';
 exports.deviceName = 'Headless';
 exports.permanent_pairing_secret = 'randomstring';
 exports.control_addresses = ['DEVICE ALLOWED TO CHAT'];
